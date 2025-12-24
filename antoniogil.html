@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta de Navidad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login, .carta {
+      max-width: 720px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .carta {
+      display: none;
+      text-align: justify;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .firma {
+      margin-top: 30px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #fbc531;
+      color: black;
+    }
+
+    button:hover {
+      background: #e1b12c;
+    }
+
+    .error {
+      color: #ffcccc;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login">
+    <h1>🎄 Carta de Navidad 🎄</h1>
+    <p style="text-align:center">Introduce tu contraseña para leer tu carta</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- CARTA -->
+  <div class="carta" id="carta">
+    <h1>Querido Antonio,</h1>
+
+    <p>
+      Estamos muy felices de tenerte como parte de la familia, ya que eres un ser
+      alegre, lleno de luz, siempre ayudándonos y estando con nosotros tanto en las
+      malas como en las buenas.
+    </p>
+
+    <p>
+      Queremos que sepas que no estás solo, que nosotros somos tu familia y que nos
+      llena de alegría ver a nuestra madre feliz contigo.
+    </p>
+
+    <p>
+      Aún recordamos cuando llegaste a Perú. Has conseguido camelar a toda la familia
+      con tu arte andaluz. Gracias por todo lo que nos das.
+    </p>
+
+    <p>
+      Estamos orgullosos de ti, de tus logros y, sobre todo, de la gran persona que eres.
+      Y cómo no serlo, si por algo eres el marido de María Fabiola.
+    </p>
+
+    <p class="firma">
+      Te queremos.<br>
+      Att: tu familia.
+    </p>
+  </div>
+
+<script>
+  const CONTRASENA = "macarena"; // 🔐 cambia la contraseña si quieres
+
+  function verificar() {
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (pass === CONTRASENA) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("carta").style.display = "block";
+    } else {
+      error.textContent = "Contraseña incorrecta";
+    }
+  }
+</script>
+
+</body>
+</html>

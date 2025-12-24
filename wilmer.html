@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta de Navidad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #2c2c54, #40407a);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login, .carta {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    .carta {
+      display: none;
+      text-align: justify;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .firma {
+      margin-top: 30px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #fbc531;
+      color: black;
+    }
+
+    button:hover {
+      background: #e1b12c;
+    }
+
+    .error {
+      color: #ffcccc;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login">
+    <h1>🎄 Carta de Navidad 🎄</h1>
+    <p style="text-align:center">Introduce tu contraseña para leer tu carta</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- CARTA -->
+  <div class="carta" id="carta">
+    <h1>Querido Wilmer,</h1>
+
+    <p>
+      El primogénito de la familia, pero a la vez el bebé, porque nunca envejece.
+      El que siempre nos regala alegría con sus ocurrencias.
+    </p>
+
+    <p>
+      Gracias por llegar a nuestras vidas. No podemos imaginar una familia sin un Wilmer en ella.
+      A pesar de todas las dificultades que la vida te puso en el camino, supiste afrontarlas,
+      por más difíciles que fueran, y gracias a ello eres la persona tan maravillosa que eres hoy.
+    </p>
+
+    <p>
+      Nunca dejes de ser esa luz que desprendes y que ilumina a todos los que te rodean.
+    </p>
+
+    <p class="firma">
+      Te amamos.<br>
+      Tu familia.
+    </p>
+  </div>
+
+<script>
+  const CONTRASENA = "malaga"; // 🔐 cambia la contraseña si quieres
+
+  function verificar() {
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (pass === CONTRASENA) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("carta").style.display = "block";
+    } else {
+      error.textContent = "Contraseña incorrecta";
+    }
+  }
+</script>
+
+</body>
+</html>

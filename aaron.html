@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta de Navidad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #134e5e, #71b280);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login, .carta {
+      max-width: 760px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .carta {
+      display: none;
+      text-align: justify;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .firma {
+      margin-top: 35px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #a8e6cf;
+      color: black;
+    }
+
+    button:hover {
+      background: #81c784;
+    }
+
+    .error {
+      color: #ffcccc;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login">
+    <h1>🎄 Carta de Navidad 🎄</h1>
+    <p style="text-align:center">Introduce tu contraseña para leer tu carta</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- CARTA -->
+  <div class="carta" id="carta">
+    <h1>Querido Aarón,</h1>
+
+    <!-- TEXTO AÑADIR AQUÍ -->
+    <p>
+      
+    </p>
+
+    <p>
+      
+    </p>
+
+    <p class="firma">
+      <br>
+      Att: tu familia.
+    </p>
+  </div>
+
+<script>
+  const CONTRASENA = "aaron2025"; // 🔐 puedes cambiarla cuando quieras
+
+  function verificar() {
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (pass === CONTRASENA) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("carta").style.display = "block";
+    } else {
+      error.textContent = "Contraseña incorrecta";
+    }
+  }
+</script>
+
+</body>
+</html>

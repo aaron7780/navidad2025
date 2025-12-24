@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Navidad 🎄</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#0b3d91, #001f3f);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    margin-top: 30px;
+  }
+
+  .personas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 20px;
+  }
+
+  .persona {
+    cursor: pointer;
+  }
+
+  .persona img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .persona img:hover {
+    transform: scale(1.1);
+  }
+
+  .persona p {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  /* ❄️ Nieve */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+    }
+  }
+
+  /* 📸 Recuerdos */
+.recuerdos {
+  padding: 30px 20px;
+}
+
+.slider {
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+  touch-action: pan-y;
+}
+
+.slider img {
+  width: 100%;
+  border-radius: 15px;
+  display: none;
+}
+
+.slider img.active {
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎄 Feliz Navidad 🎄</h1>
+<p>Toca tu foto para leer tu carta ❤️</p>
+
+<!-- 👨‍👩‍👧 Personas -->
+<div class="personas">
+  <div class="persona" onclick="entrar('jhamila.html')">
+    <img src="img/jahmila.jpeg">
+    <p>Jahmila</p>
+  </div>
+  <div class="persona" onclick="entrar('wilmer.html')">
+    <img src="img/wilmer.png">
+    <p>Wilmer</p>
+  </div>
+  <div class="persona" onclick="entrar('fabio.html')">
+    <img src="IMG/fabio.jpeg">
+    <p>Fabio</p>
+  </div>
+  <div class="persona" onclick="entrar('fabiolita.html')">
+    <img src="img/fabiola.jpeg">
+    <p>Fabiolita</p>
+  </div>
+  <div class="persona" onclick="entrar('aaron.html')">
+    <img src="img/aaron.jpeg">
+    <p>Aaron</p>
+  </div>
+  <div class="persona" onclick="entrar('antoniogil.html')">
+    <img src="img/antoniogil.jpeg">
+    <p>Antonio.Gil</p>
+  </div>
+  <div class="persona" onclick="entrar('wildo.html')">
+    <img src="img/wildo.jpeg">
+    <p>Wildo</p>
+  </div>
+  <div class="persona" onclick="entrar('roxana.html')">
+    <img src="img/roxana.jpeg">
+    <p>Roxana</p>
+  </div>
+  <div class="persona" onclick="entrar('fabiola.html')">
+    <img src="img/abuela.jpeg">
+    <p>Fabiola</p>
+  </div>
+  <div class="persona" onclick="entrar('antuanet.html')">
+    <img src="img/antuanet.jpeg">
+    <p>Antuanet</p>
+  </div>
+  <div class="persona" onclick="entrar('antonioR.html')">
+    <img src="img/antonior.jpeg">
+    <p>Antonio(R)</p>
+  </div>
+  <div class="persona" onclick="entrar('antonioA.html')">
+    <img src="img/antonioa.jpeg">
+    <p>Antonio(A)</p>
+  </div>
+</div>
+
+<section class="recuerdos">
+  <h2>📸 Recuerdos</h2>
+  <div class="slider" id="slider">
+    <img src="img/recuerdo1.jpeg" class="active">
+    <img src="img/recuerdo2.jpeg">
+    <img src="img/recuerdo3.jpeg">
+    <img src="img/recuerdo5.jpeg">
+    <img src="img/recuerdo6.jpeg">
+    <img src="img/recuerdo7.jpeg">
+    <img src="img/recuerdo8.jpeg">
+    <img src="img/recuerdo9.jpeg">
+    <img src="img/recuerdo10.jpeg">
+    <img src="img/recuerdo11.jpeg">
+    <img src="img/recuerdo12.jpeg">
+  </div>
+</section>
+
+<!-- ❄️ Nieve -->
+<script>
+  for (let i = 0; i < 40; i++) {
+    let snow = document.createElement("div");
+    snow.className = "snowflake";
+    snow.innerHTML = "❄";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    snow.style.fontSize = (Math.random() * 10 + 10) + "px";
+    document.body.appendChild(snow);
+  }
+</script>
+
+<!-- 🔑 Acceso -->
+<script>
+  function entrar(pagina) {
+    window.location.href = pagina;
+  }
+</script>
+
+<!-- ▶️ Slider automático -->
+<script>
+  let index = 0;
+  const fotos = document.querySelectorAll(".slider img");
+
+  setInterval(() => {
+    fotos[index].classList.remove("active");
+    index = (index + 1) % fotos.length;
+    fotos[index].classList.add("active");
+  }, 3000);
+</script>
+
+</body>
+</html>

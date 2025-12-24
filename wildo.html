@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta de Navidad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #0b3d2e, #145a32);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .login, .carta {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    .carta {
+      display: none;
+      text-align: justify;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .firma {
+      margin-top: 30px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #1abc9c;
+      color: black;
+    }
+
+    button:hover {
+      background: #16a085;
+    }
+
+    .error {
+      color: #ffcccc;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login">
+    <h1>🎄 Carta de Navidad 🎄</h1>
+    <p>Introduce tu contraseña para leer tu carta</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- CARTA -->
+  <div class="carta" id="carta">
+    <h1>Querido Wildo,</h1>
+
+    <p>
+      Tenemos mucha nostalgia, ya que esta es la primera Navidad que pasamos juntos
+      después de muchos años divididos, esparcidos y viviendo en diferentes países.
+    </p>
+
+    <p>
+      Hemos pasado muchos viajes y aventuras sin tu compañía, y siempre nos has hecho
+      falta para completar esa parte que solo tú sabes llenar. Estamos muy felices de
+      tenerte con nosotros y queremos que te sientas tan completo como nosotros nos
+      sentimos cuando estás a nuestro lado.
+    </p>
+
+    <p>
+      Por fin hemos conseguido traer a las dos personas que más amas en tu vida.
+      ¿Y cómo no entenderte? Si has pasado casi toda tu vida junto a ellos.
+      Hoy podemos decir que estamos completos todos, porque tú estás con quienes más amas.
+    </p>
+
+    <p>
+      Estamos orgullosos de que, por fin, esa distancia con tus hijos haya quedado atrás.
+    </p>
+
+    <p class="firma">
+      Te amamos.<br>
+      Tu familia.
+    </p>
+  </div>
+
+<script>
+  const CONTRASENA = "barcelona"; // 🔐 cambia esto para cada persona
+
+  function verificar() {
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (pass === CONTRASENA) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("carta").style.display = "block";
+    } else {
+      error.textContent = "Contraseña incorrecta";
+    }
+  }
+</script>
+
+</body>
+</html>

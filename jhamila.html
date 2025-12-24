@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta de Navidad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #134e5e, #71b280);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login, .carta {
+      max-width: 760px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .carta {
+      display: none;
+      text-align: justify;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .firma {
+      margin-top: 35px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #a8e6cf;
+      color: black;
+    }
+
+    button:hover {
+      background: #81c784;
+    }
+
+    .error {
+      color: #ffcccc;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login">
+    <h1>🎄 Carta de Navidad 🎄</h1>
+    <p style="text-align:center">Introduce tu contraseña para leer tu carta</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- CARTA -->
+  <div class="carta" id="carta">
+    <h1>Querida Jhamila,</h1>
+
+    <p>
+      Estamos muy felices de tenerte después de tanto tiempo. Nos llena de alegría tu
+      gran presencia. Sabemos que han sido unos años difíciles para ti, ya que no has
+      podido estar cerca de la familia ni pasar tiempo con los abuelos, tu primo Aarón
+      y tu tía Fabiola.
+    </p>
+
+    <p>
+      Esperamos que ahora que estás más cerca de nosotros y puedes venir, nos visites
+      más a menudo. Sabemos que adaptarte al cambio de país e idioma no ha sido fácil,
+      dejar amistades que tenías en Perú y, sobre todo, estar lejos de tu querido papá.
+    </p>
+
+    <p>
+      A pesar de todas esas circunstancias, siempre has tenido —y sigues teniendo—
+      una sonrisa para todos nosotros. Has logrado llenar ese vacío que dejaste.
+    </p>
+
+    <p>
+      Queremos que sepas que siempre has estado presente entre nosotros todas las
+      Navidades y que siempre vamos a estar para ti en todo lo que haga falta.
+    </p>
+
+    <p>
+      Te queremos mucho, nuestra pequeña y gran guerrera.
+    </p>
+
+    <p class="firma">
+      Disfruta de tus regalos ❤️<br>
+      Te queremos.<br>
+      Att: tu familia.
+    </p>
+  </div>
+
+<script>
+  const CONTRASENA = "santander"; // 🔐 puedes cambiarla si quieres
+
+  function verificar() {
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (pass === CONTRASENA) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("carta").style.display = "block";
+    } else {
+      error.textContent = "Contraseña incorrecta";
+    }
+  }
+</script>
+
+</body>
+</html>
