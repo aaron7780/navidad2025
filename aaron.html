@@ -2,126 +2,140 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Carta de Navidad</title>
+  <title>Carta para Aarón 🎄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: linear-gradient(135deg, #134e5e, #71b280);
-      color: white;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(180deg, #0b3d2e, #145a32);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
     }
 
-    .login, .carta {
-      max-width: 760px;
-      background: rgba(0, 0, 0, 0.45);
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    /* Nieve */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://i.imgur.com/6QJjYMe.png");
+      opacity: 0.25;
+      animation: snow 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes snow {
+      from { background-position: 0 0; }
+      to { background-position: 0 1000px; }
     }
 
     .carta {
-      display: none;
-      text-align: justify;
+      background: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      width: 100%;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: aparecer 1.5s ease;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      text-align: center;
+      color: #b22222;
       margin-bottom: 25px;
+      font-size: 2.2em;
     }
 
     p {
-      line-height: 1.9;
-      font-size: 18px;
+      font-size: 1.15em;
+      line-height: 1.7;
+      color: #333;
       margin-bottom: 18px;
     }
 
     .firma {
-      margin-top: 35px;
-      text-align: right;
-      font-style: italic;
+      margin-top: 30px;
+      font-weight: bold;
+      color: #145a32;
+      font-size: 1.2em;
     }
 
-    input {
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-      width: 220px;
+    .corazon {
+      font-size: 2em;
       margin-top: 15px;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      background: #a8e6cf;
-      color: black;
-    }
-
-    button:hover {
-      background: #81c784;
-    }
-
-    .error {
-      color: #ffcccc;
-      margin-top: 15px;
-      text-align: center;
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      p {
+        font-size: 1.05em;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- LOGIN -->
-  <div class="login" id="login">
-    <h1>🎄 Carta de Navidad 🎄</h1>
-    <p style="text-align:center">Introduce tu contraseña para leer tu carta</p>
-    <input type="password" id="password" placeholder="Contraseña">
-    <br>
-    <button onclick="verificar()">Entrar</button>
-    <div class="error" id="error"></div>
-  </div>
+  <div class="carta">
+    <h1>Querido Aarón</h1>
 
-  <!-- CARTA -->
-  <div class="carta" id="carta">
-    <h1>Querido Aarón,</h1>
-
-    <!-- TEXTO AÑADIR AQUÍ -->
     <p>
-      
+      Nuestro pequeño amor, el menor, pero a la vez con un gran corazón.  
+      Queremos agradecerte, ya que gracias a tu positivismo has logrado que tu abuela,
+      Antonio y toda la familia estemos aquí reunidos.
     </p>
 
     <p>
-      
+      Estamos agradecidos a Dios por tenerte en nuestra familia, gracias por elegirnos.
+      Eres tan noble de corazón y nos sentimos muy orgullosos del hombre en el que te has convertido,
+      gracias por querernos tanto y por ser siempre empático con todos nosotros.
     </p>
 
-    <p class="firma">
+    <p>
+      Sabemos que este año ha sido muy complicado, pero a pesar de todo has podido salir adelante.
+      Queremos decirte que lo has logrado.
+    </p>
+
+    <p>
+      Has sido y eres un ser de luz junto con tus primos. Ustedes son una generación que,
+      a pesar de las circunstancias que han vivido, saben lo importante que es la familia.
+      Ese eres tú: luchando siempre por estar unidos.
+    </p>
+
+    <p>
+      Gracias, Aarón, por enseñarnos el significado de la familia.
+      Que sepas que siempre, siempre, siempre cuentas con nosotros.
+    </p>
+
+    <div class="firma">
+      Te amamos  
       <br>
-      Att: tu familia.
-    </p>
+      Att: Tu Familia 👪
+    </div>
+
+    <div class="corazon">❤️🎄</div>
   </div>
-
-<script>
-  const CONTRASENA = "aaron2025"; // 🔐 puedes cambiarla cuando quieras
-
-  function verificar() {
-    const pass = document.getElementById("password").value;
-    const error = document.getElementById("error");
-
-    if (pass === CONTRASENA) {
-      document.getElementById("login").style.display = "none";
-      document.getElementById("carta").style.display = "block";
-    } else {
-      error.textContent = "Contraseña incorrecta";
-    }
-  }
-</script>
 
 </body>
 </html>
